@@ -1,15 +1,14 @@
 from database.connection import get_db_connection
+
 class Magazine:
-    def __init__(self, id, name, category):
-        self.id = id
-        self.name = name
-        self.category = category
     
     def __init__(self, name, category):  # Corrected __init_ method
         self._name = name
         self._category = category
         self._id = None
+        self._create_in_db()
 
+    def _create_in_db(self):
         conn = get_db_connection()
         cursor = conn.cursor()
         cursor.execute('INSERT INTO magazines (name, category) VALUES (?, ?)', (self._name, self._category))

@@ -3,15 +3,6 @@ from models.author import Author
 from models.magazine import Magazine
 
 class Article:
-    def __init__(self, id, title, content, author_id, magazine_id):
-        self.id = id
-        self.title = title
-        self.content = content
-        self.author_id = author_id
-        self.magazine_id = magazine_id
-
-    def __repr__(self):
-        return f'<Article {self.title}>'
 
     def __init__(self, title, content, author, magazine):  # Corrected __init_ method
         self._title = title
@@ -19,7 +10,9 @@ class Article:
         self._author = author
         self._magazine = magazine
         self._id = None
+        self._create_in_db()
 
+    def _create_in_db(self):
         conn = get_db_connection()
         cursor = conn.cursor()
         cursor.execute('INSERT INTO articles (title, content, author_id, magazine_id) VALUES (?, ?, ?, ?)',
@@ -47,3 +40,6 @@ class Article:
     @property
     def magazine(self):
         return self._magazine
+    
+    def __repr__(self):
+        return f'<Article {self.title}>'
