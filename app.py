@@ -74,15 +74,15 @@ if __name__ == "__main__":
         create_tables()
 
 
-        author1 = Author(name="JESSE LANGAT")
+        author1 = Author(name="CYNDI MUSTAPHA")
         print(f"Author ID: {author1.id}, Name: {author1.name}")
 
 
-        magazine1 = Magazine(name="CREME DE LA CITY", category="Trending")
+        magazine1 = Magazine(name="MODERN MUSE", category="Trending")
         print(f"Magazine ID: {magazine1.id}, Name: {magazine1.name}, Category: {magazine1.category}")
 
 
-        article1 = Article(author=author1, magazine=magazine1, title="Feud brewing between the east and west", content="content about beef in nairobi city  ")
+        article1 = Article(author=author1, magazine=magazine1, title="Who Is She?", content="Street Wear")
         print(f"Article ID: {article1.id}, Title: {article1.title}, Author: {article1.author.name}, Magazine: {article1.magazine.name}")
         print("Author's Articles:", author1.articles())
         print("Author's Magazines:", author1.magazines())

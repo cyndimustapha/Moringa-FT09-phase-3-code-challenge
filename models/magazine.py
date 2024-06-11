@@ -2,11 +2,12 @@ from database.connection import get_db_connection
 
 class Magazine:
     
-    def __init__(self, name, category):  # Corrected __init_ method
+    def __init__(self, name, category, id = None): 
         self._name = name
         self._category = category
-        self._id = None
-        self._create_in_db()
+        self._id = id
+        if id is None:
+            self._create_in_db()
 
     def _create_in_db(self):
         conn = get_db_connection()

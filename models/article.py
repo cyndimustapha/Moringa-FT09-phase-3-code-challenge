@@ -4,13 +4,14 @@ from models.magazine import Magazine
 
 class Article:
 
-    def __init__(self, title, content, author, magazine):  # Corrected __init_ method
+    def __init__(self, title, content, author, magazine, id = None):  # Corrected __init_ method
         self._title = title
         self._content = content
         self._author = author
         self._magazine = magazine
-        self._id = None
-        self._create_in_db()
+        self._id = id
+        if id is None:
+            self._create_in_db()
 
     def _create_in_db(self):
         conn = get_db_connection()
