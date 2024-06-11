@@ -3,7 +3,6 @@ from database.connection import get_db_connection
 from models.article import Article
 from models.author import Author
 from models.magazine import Magazine
-from models.article import Article
 
 def main():
     # Initialize the database and create tables
@@ -68,31 +67,4 @@ def main():
         print(Article(article["id"], article["title"], article["content"], article["author_id"], article["magazine_id"]))
 
 if __name__ == "__main__":
-    main()
-    try:
-
-        create_tables()
-
-
-        author1 = Author(name="CYNDI MUSTAPHA")
-        print(f"Author ID: {author1.id}, Name: {author1.name}")
-
-
-        magazine1 = Magazine(name="MODERN MUSE", category="Trending")
-        print(f"Magazine ID: {magazine1.id}, Name: {magazine1.name}, Category: {magazine1.category}")
-
-
-        article1 = Article(author=author1, magazine=magazine1, title="Who Is She?", content="Street Wear")
-        print(f"Article ID: {article1.id}, Title: {article1.title}, Author: {article1.author.name}, Magazine: {article1.magazine.name}")
-        print("Author's Articles:", author1.articles())
-        print("Author's Magazines:", author1.magazines())
-        print("Magazine's Articles:", magazine1.articles())
-        print("Magazine's Contributors:", magazine1.contributors())
-        print("Magazine's Article Titles:", magazine1.article_titles())
-        print("Magazine's Contributing Authors:", magazine1.contributing_authors())
-
-    except Exception as e:
-        print("An error occurred:", str(e))
-
-if __name__ == "_main_":
     main()
